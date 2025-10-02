@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KING SHOP - ร้านหนังสือออนไลน์</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/a2e0b2b0f3.js" crossorigin="anonymous"></script>
+</head>
+
+    <body>
+        <nav>
+          <div class="nav-logo">
+            <a href="index.html"><i class="fas fa-book-open"></i> KING SHOP</a>
+          </div>
+          <div class="nav-menu" id="nav-menu">
+            <a href="index.html">หน้าแรก</a>
+            <a href="books.html">หนังสือทั้งหมด</a>
+            <a href="categories.html">หมวดหมู่</a>
+            <a href="contact.html">ติดต่อเรา</a>
+          </div>
+          <div class="nav-icons">
+            
+            <a href="cart.html"><i class="fas fa-shopping-cart cart-icon"></i></a>
+            <a href="login.html"><button class="login-btn">เข้าสู่ระบบ</button></a>
+            <a href="signup.html"><button class="signup-btn">สมัครสมาชิก</button></a>
+         
+          </div>
+        </nav>
+      
+        <div class="search-bar" id="search-bar">
+          <form action="search.html" method="GET">
+            <input type="text" name="q" placeholder="ค้นหาหนังสือเรียน...">
+            <button type="submit">ค้นหา</button>
+          </form>
+        </div>
+      
+        <main>
+          <section class="hero">
+            <h1> <span>📖 KING SHOP</span>
+            
+            <a href="books.html"><button class="shop-now">เริ่มช้อปเลย</button></a>
+          </section>
+      
+          <section class="categories" id="categories">
+            <h2>หมวดหมู่</h2>
+            <div class="category-list">
+              <a href="p.html"><div class="category">ประถมศึกษา</div></a>
+              <a href="m.html"><div class="category">มัธยมต้น</div></a>
+              <a href="mp.html"><div class="category">มัธยมปลาย</div></a>
+              <a href="ml.html"><div class="category">มหาวิทยาลัย</div></a>
+            </div>
+          </section>
+      
+          <section class="book-list" id="books">
+            <h2>หนังสือแนะนำ</h2>
+            <div class="book-grid">
+              <div class="book-card">
+                <a href="product.html?id=1">
+                  <img src="book1.jpg" alt="book1">
+                  <h3>ยังไม่มีสินค้า</h3>
+                  <p>-</p>
+                </a>
+               <button onclick="addToCart('ทดสอบ1')">หยิบใส่ตะกร้า</button>
+
+              </div>
+              <div class="book-card">
+                <a href="product.html?id=2">
+                  <img src="book2.jpg" alt="book2">
+                  <h3>ยังไม่มีสินค้า</h3>
+                  <p>-</p>
+                </a>
+                <button onclick="addToCart('ทดสอบ2')">หยิบใส่ตะกร้า</button>
+
+              </div>
+              <div class="book-card">
+                <a href="product.html?id=3">
+                  <img src="book3.jpg" alt="book3">
+                  <h3>ยังไม่มีสินค้า</h3>
+                  <p>-</p>
+                </a>
+                <button onclick="addToCart('ทดสอบ3')">หยิบใส่ตะกร้า</button>
+
+              </div>
+              
+            </div>
+          </section>
+      
+      
+        <script>
+          function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+          }
+      
+          function toggleSearch() {
+            const search = document.getElementById('search-bar');
+            search.classList.toggle('active');
+          }
+        </script>
+        
+      </body>
+   
+         <script src="cart.js" defer></script>
+
+      </html>
+      

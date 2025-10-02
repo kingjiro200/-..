@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - KING Shop</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans',sans-serif; text-decoration:none; }
+    body { background:#f4f8fb; color:#333; display:flex; justify-content:center; align-items:center; height:100vh; }
+    .auth-container { width:100%; max-width:400px; }
+    .auth-box { background:#fff; padding:2vw; border-radius:1vw; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    h2 { text-align:center; color:#1e3c72; margin-bottom:1.5vw; font-size:2.5vw; }
+    form { display:flex; flex-direction:column; gap:1vw; }
+    input { padding:0.8vw; border:1px solid #ccc; border-radius:0.5vw; font-size:1vw; }
+    input:focus { border-color:#2a5298; outline:none; }
+    .btn-submit { background:#2a5298; color:#fff; padding:1vw; border:none; border-radius:0.6vw; font-size:1.2vw; cursor:pointer; transition:0.3s; }
+    .btn-submit:hover { background:#1e3c72; }
+    p { text-align:center; font-size:1.2vw; margin-top:1vw; }
+    a { color:#2a5298; font-weight:bold; }
+    a:hover { color:#ffd700; }
+    #loginError { color:red; font-size:0.9vw; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2>เข้าสู่ระบบ</h2>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="กรอกอีเมล" required />
+        <input type="password" id="loginPassword" placeholder="กรอกรหัสผ่าน" required />
+        <span id="loginError"></span>
+        <button type="submit" class="btn-submit">เข้าสู่ระบบ</button>
+        <p>ยังไม่มีบัญชี? <a href="signup.html">สมัครสมาชิก</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+
+    loginForm.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      // ดึงข้อมูลผู้ใช้จาก LocalStorage
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if(user){
+        alert(`เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ, ${user.name}`);
+        loginForm.reset();
+        loginError.textContent = "";
+        // สามารถเปลี่ยนหน้าไปยังหน้า profile.html หรือ หน้า homepage ได้
+          window.location.href = "index.html"
+      } else {
+        loginError.textContent = "อีเมลหรือรหัสผ่านไม่ถูกต้อง!";
+      }
+    });
+  </script>
+</body>
+</html>

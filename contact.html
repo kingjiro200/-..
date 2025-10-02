@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KING SHOP - ติดต่อเรา</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/a2e0b2b0f3.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* ---------- CONTACT PAGE ---------- */
+    .hero {
+      text-align: center;
+      padding: 4vw 2vw;
+      background: linear-gradient(135deg, #000000, #555555);
+      color: white;
+      border-radius: 0.8vw;
+      margin: 2vw auto;
+      max-width: 1200px;
+    }
+
+    .hero h1 {
+      font-size: 2.5vw;
+      margin-bottom: 1vw;
+    }
+
+    .hero p {
+      font-size: 1.2vw;
+      opacity: 0.9;
+    }
+
+    .contact-info {
+      max-width: 1200px;
+      margin: 3vw auto;
+      padding: 2vw;
+      text-align: center;
+    }
+
+    .contact-info h2 {
+      font-size: 2vw;
+      margin-bottom: 2vw;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2vw;
+    }
+
+    .contact-card {
+      background: #f9f9f9;
+      padding: 2vw;
+      border-radius: 1vw;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-card i {
+      color: #111;
+      margin-bottom: 1vw;
+    }
+
+    .contact-card h3 {
+      margin: 1vw 0 0.5vw;
+      font-size: 1.3vw;
+    }
+
+    .contact-card p {
+      font-size: 1.1vw;
+      color: #333;
+    }
+
+    .contact-form {
+      max-width: 800px;
+      margin: 3vw auto;
+      padding: 2vw;
+      background: #fdfdfd;
+      border-radius: 1vw;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h2 {
+      font-size: 2vw;
+      margin-bottom: 1.5vw;
+      text-align: center;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2vw;
+    }
+
+    .contact-form label {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8vw;
+      border: 1px solid #ccc;
+      border-radius: 0.5vw;
+      font-size: 1vw;
+      width: 100%;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #111;
+    }
+
+    .submit-btn {
+      background: #111;
+      color: white;
+      padding: 1vw;
+      border: none;
+      border-radius: 0.5vw;
+      font-size: 1.1vw;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- แถบเมนู -->
+  <nav>
+    <div class="nav-logo">
+      <a href="index.html"><i class="fas fa-book-open"></i> KING SHOP</a>
+    </div>
+    <div class="nav-menu" id="nav-menu">
+      <a href="index.html">หน้าแรก</a>
+      <a href="books.html">หนังสือทั้งหมด</a>
+      <a href="categories.html">หมวดหมู่</a>
+      <a href="contact.html" class="active">ติดต่อเรา</a>
+    </div>
+    <div class="nav-icons">
+     
+      <a href="cart.html"><i class="fas fa-shopping-cart cart-icon"></i></a>
+      <a href="login.html"><button class="login-btn">เข้าสู่ระบบ</button></a>
+      <a href="signup.html"><button class="signup-btn">สมัครสมาชิก</button></a>
+      
+    </div>
+  </nav>
+
+  <!-- แถบค้นหา -->
+  <div class="search-bar" id="search-bar">
+    <form action="search.html" method="GET">
+      <input type="text" name="q" placeholder="ค้นหาหนังสือเรียน...">
+      <button type="submit">ค้นหา</button>
+    </form>
+  </div>
+
+  <!-- เนื้อหาหลัก -->
+  <main>
+    <section class="hero">
+      <h1>📞 ติดต่อเรา</h1>
+      <p>หากมีข้อสงสัยเกี่ยวกับสินค้า การสั่งซื้อ หรือบริการ สามารถติดต่อเราได้ตามช่องทางด้านล่าง</p>
+    </section>
+
+    <section class="contact-info container">
+      <h2>ข้อมูลการติดต่อ</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fas fa-phone fa-2x"></i>
+          <h3>โทรศัพท์</h3>
+          <p>084-132-0888</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-envelope fa-2x"></i>
+          <h3>Email</h3>
+          <p>36991@bpk.ac.th</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt fa-2x"></i>
+          <h3>ที่อยู่</h3>
+          <p>82 ถนนวัดโปรดเกศ เขตพระประแดง สมุทรปราการ 10130</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form container">
+      <h2>ส่งข้อความถึงเรา</h2>
+      <!-- ใช้ mailto ส่งอีเมล -->
+      <form action="mailto:36991@bpk.ac.th" method="POST" enctype="text/plain">
+  <label for="name">ชื่อ-นามสกุล</label>
+  <input type="text" id="name" name="name" placeholder="กรอกชื่อ-นามสกุล" required>
+
+  <label for="phone">เบอร์โทรศัพท์</label>
+  <input type="tel" id="phone" name="phone" placeholder="กรอกเบอร์โทรศัพท์" required>
+
+  <label for="message">ข้อความ</label>
+  <textarea id="message" name="message" rows="5" placeholder="พิมพ์ข้อความที่นี่..." required></textarea>
+
+  <button type="submit" class="submit-btn">ส่งข้อความ</button>
+</form>
+
+    </section>
+  </main>
+
+  <!-- script -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('active');
+    }
+
+    function toggleSearch() {
+      const search = document.getElementById('search-bar');
+      search.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

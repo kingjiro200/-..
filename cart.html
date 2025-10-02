@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ตะกร้าสินค้า | KING Shop</title>
+
+  <!-- FontAwesome สำหรับไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Sarabun', sans-serif;
+      text-decoration: none;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #111111;
+      padding-top: 6vw;
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+    nav {
+      width: 100%;
+      background: linear-gradient(135deg, #000000, #ffffff);
+      padding: 1vw 3vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 2vw;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+    }
+
+    .nav-logo a {
+      color: white;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2vw;
+    }
+
+    .nav-menu a {
+      color: white;
+      font-size: 1.1vw;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: #cccccc;
+      text-decoration: underline;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1vw;
+    }
+
+    .nav-icons i,
+    .nav-icons .cart-icon {
+      font-size: 1.6vw;
+      cursor: pointer;
+      color: white;
+    }
+
+    .nav-icons i:hover {
+      color: #cccccc;
+    }
+
+    .login-btn,
+    .signup-btn {
+      padding: 0.4vw 1.2vw;
+      font-size: 1vw;
+      border-radius: 0.5vw;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .login-btn {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+
+    .login-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    .signup-btn {
+      background-color: white;
+      color: black;
+    }
+
+    .signup-btn:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* ---------------- MAIN CONTENT ---------------- */
+    .container {
+      padding: 2vw;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5vw;
+      margin-bottom: 2vw;
+    }
+
+    /* ---------------- CATEGORIES ---------------- */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2vw;
+      margin-bottom: 4vw;
+    }
+
+    .category-card {
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 1vw;
+      padding: 2vw 1vw;
+      font-size: 1.2vw;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-card a {
+      color: #000;
+      display: block;
+    }
+
+    .category-card:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .category-card:hover a {
+      color: #fff;
+    }
+
+    /* ---------------- หนังสือ ---------------- */
+    h2 {
+      margin: 40px 0 20px;
+      font-size: 2vw;
+      border-left: 5px solid #000;
+      padding-left: 10px;
+      text-align: left;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2vw;
+      margin-bottom: 3vw;
+    }
+
+    .book-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 1vw;
+      padding: 1vw;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 0.5vw;
+      background-color: #ddd;
+      margin-bottom: 0.5vw;
+    }
+
+    .book-card h3 {
+      font-size: 1.1vw;
+      margin-bottom: 0.5vw;
+    }
+
+    .book-card p {
+      font-size: 0.9vw;
+      color: #555;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 18vw;
+      }
+      .nav-logo {
+        font-size: 6vw;
+      }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .nav-menu a {
+        font-size: 5vw;
+        padding: 3vw;
+      }
+      h1 {
+        font-size: 6vw;
+      }
+      .category-card {
+        font-size: 4vw;
+        padding: 6vw 2vw;
+      }
+    }
+    
+  /* ตารางตะกร้า */
+  .cart-container {
+    max-width: 1000px;
+    margin: 2vw auto 5vw;
+    padding: 0 2vw;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 0.5vw;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 1vw;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #3498db;
+    color: white;
+    font-size: 1.1vw;
+  }
+
+  .remove-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5vw 1vw;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    font-size: 1vw;
+  }
+
+  .remove-btn:hover {
+    background-color: #c0392b;
+  }
+
+  #clear-cart {
+    margin-top: 2vw;
+    padding: 0.7vw 1.5vw;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1vw;
+  }
+
+  #clear-cart:hover {
+    background-color: #2980b9;
+  }
+
+  .empty-msg {
+    text-align: center;
+    padding: 2vw 0;
+    font-size: 1.2vw;
+    color: #555;
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-logo">
+      <a href="index.html"><i class="fas fa-book-open"></i> KING Shop</a>
+    </div>
+
+    <div class="nav-menu" id="nav-menu">
+      <a href="index.html">หน้าแรก</a>
+      <a href="books.html">หนังสือทั้งหมด</a>
+      <a href="categories.html">หมวดหมู่</a>
+      <a href="contact.html">ติดต่อเรา</a>
+    </div>
+
+    <div class="nav-icons">
+      <i class="fas fa-search"></i>
+      <a href="cart.html"><i class="fas fa-shopping-cart cart-icon"></i></a>
+        <a href="login.html"><button class="login-btn">เข้าสู่ระบบ</button></a>
+            <a href="signup.html"><button class="signup-btn">สมัครสมาชิก</button></a>
+    </div>
+  </nav>
+
+  <h1>ตะกร้าสินค้า</h1>
+
+  <div class="cart-container">
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>ลำดับ</th>
+          <th>ชื่อหนังสือ</th>
+          <th>จัดการ</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+      </tbody>
+    </table>
+    <button id="clear-cart">ลบสินค้าทั้งหมด</button>
+  </div>
+
+  <script>
+    const cartContainer = document.getElementById('cart-items');
+    const clearCartBtn = document.getElementById('clear-cart');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function renderCart() {
+      cartContainer.innerHTML = '';
+      if(cart.length === 0) {
+        cartContainer.innerHTML = '<tr><td colspan="3"><p class="empty-msg">ยังไม่มีหนังสือในตะกร้า</p></td></tr>';
+        clearCartBtn.style.display = 'none';
+      } else {
+        clearCartBtn.style.display = 'block';
+        cart.forEach((book, index) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${book}</td>
+            <td><button class="remove-btn" onclick="removeItem(${index})">ลบ</button></td>
+          `;
+          cartContainer.appendChild(tr);
+        });
+      }
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    clearCartBtn.addEventListener('click', () => {
+      cart = [];
+      localStorage.removeItem('cart');
+      renderCart();
+    });
+
+    renderCart();
+  </script>
+
+</body>
+</html>

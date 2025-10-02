@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KING Shop - หมวดหมู่หนังสือ</title>
+
+  <!-- FontAwesome สำหรับไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Sarabun', sans-serif;
+      text-decoration: none;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #111111;
+      padding-top: 6vw;
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+    nav {
+      width: 100%;
+      background: linear-gradient(135deg, #000000, #ffffff);
+      padding: 1vw 3vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-logo {
+      font-size: 2vw;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+    }
+
+    .nav-logo a {
+      color: white;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2vw;
+    }
+
+    .nav-menu a {
+      color: white;
+      font-size: 1.1vw;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: #cccccc;
+      text-decoration: underline;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1vw;
+    }
+
+    .nav-icons i,
+    .nav-icons .cart-icon {
+      font-size: 1.6vw;
+      cursor: pointer;
+      color: white;
+    }
+
+    .nav-icons i:hover {
+      color: #cccccc;
+    }
+
+    .login-btn,
+    .signup-btn {
+      padding: 0.4vw 1.2vw;
+      font-size: 1vw;
+      border-radius: 0.5vw;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .login-btn {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+
+    .login-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    .signup-btn {
+      background-color: white;
+      color: black;
+    }
+
+    .signup-btn:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* ---------------- MAIN CONTENT ---------------- */
+    .container {
+      padding: 2vw;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5vw;
+      margin-bottom: 2vw;
+    }
+
+    /* ---------------- CATEGORIES ---------------- */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2vw;
+      margin-bottom: 4vw;
+    }
+
+    .category-card {
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 1vw;
+      padding: 2vw 1vw;
+      font-size: 1.2vw;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-card a {
+      color: #000;
+      display: block;
+    }
+
+    .category-card:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .category-card:hover a {
+      color: #fff;
+    }
+
+    /* ---------------- หนังสือ ---------------- */
+    h2 {
+      margin: 40px 0 20px;
+      font-size: 2vw;
+      border-left: 5px solid #000;
+      padding-left: 10px;
+      text-align: left;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2vw;
+      margin-bottom: 3vw;
+    }
+
+    .book-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 1vw;
+      padding: 1vw;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 0.5vw;
+      background-color: #ddd;
+      margin-bottom: 0.5vw;
+    }
+
+    .book-card h3 {
+      font-size: 1.1vw;
+      margin-bottom: 0.5vw;
+    }
+
+    .book-card p {
+      font-size: 0.9vw;
+      color: #555;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 18vw;
+      }
+      .nav-logo {
+        font-size: 6vw;
+      }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .nav-menu a {
+        font-size: 5vw;
+        padding: 3vw;
+      }
+      h1 {
+        font-size: 6vw;
+      }
+      .category-card {
+        font-size: 4vw;
+        padding: 6vw 2vw;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-logo">
+      <a href="index.html"><i class="fas fa-book-open"></i> KING Shop</a>
+    </div>
+
+    <div class="nav-menu" id="nav-menu">
+      <a href="index.html">หน้าแรก</a>
+      <a href="books.html">หนังสือทั้งหมด</a>
+      <a href="categories.html">หมวดหมู่</a>
+      <a href="contact.html">ติดต่อเรา</a>
+    </div>
+
+    <div class="nav-icons">
+      
+      <a href="cart.html"><i class="fas fa-shopping-cart cart-icon"></i></a>
+        <a href="login.html"><button class="login-btn">เข้าสู่ระบบ</button></a>
+            <a href="signup.html"><button class="signup-btn">สมัครสมาชิก</button></a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>หมวดหมู่หนังสือเรียน</h1>
+
+    <!-- หมวดหมู่ -->
+    <div class="categories">
+      <div class="category-card"><a href="p.html">📘 ประถมศึกษา</a></div>
+      <div class="category-card"><a href="m.html">📗 มัธยมต้น</a></div>
+      <div class="category-card"><a href="mp.html">📙 มัธยมปลาย</a></div>
+      <div class="category-card"><a href="ml.html">📕 มหาวิทยาลัย</a></div>
+    </div>
+
+    <!-- หนังสือประถม -->
+    <h2 id="primary">📘 ประถมศึกษา</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220" alt="คณิตศาสตร์ ป.6">
+        <h3>คณิตศาสตร์ ป.6</h3>
+        <p>หนังสือเรียนหลักสูตรใหม่</p>
+      </div>
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220" alt="วิทยาศาสตร์ ป.6">
+        <h3>วิทยาศาสตร์ ป.6</h3>
+        <p>สรุปเนื้อหา + แบบฝึกหัด</p>
+      </div>
+    </div>
+
+    <!-- หนังสือมัธยมต้น -->
+    <h2 id="junior">📗 มัธยมต้น</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220" alt="คณิตศาสตร์ ม.1">
+        <h3>คณิตศาสตร์ ม.1</h3>
+        <p>พื้นฐาน + แบบฝึกหัด</p>
+      </div>
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220" alt="วิทยาศาสตร์ ม.1">
+        <h3>วิทยาศาสตร์ ม.1</h3>
+        <p>สรุปเข้ม + แบบฝึกหัด</p>
+      </div>
+    </div>
+
+    <!-- หนังสือมัธยมปลาย -->
+    <h2 id="senior">📙 มัธยมปลาย</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220" alt="ฟิสิกส์ ม.ปลาย">
+        <h3>ฟิสิกส์ ม.ปลาย</h3>
+        <p>เตรียมสอบเข้ามหาวิทยาลัย</p>
+      </div>
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220" alt="เคมี ม.ปลาย">
+        <h3>เคมี ม.ปลาย</h3>
+        <p>เรียนล่วงหน้า + แบบฝึกหัด</p>
+      </div>
+    </div>
+
+    <!-- หนังสือมหาวิทยาลัย -->
+    <h2 id="university">📕 มหาวิทยาลัย</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220" alt="เศรษฐศาสตร์เบื้องต้น">
+        <h3>เศรษฐศาสตร์เบื้องต้น</h3>
+        <p>สำหรับนักศึกษามหาวิทยาลัย</p>
+      </div>
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220" alt="ฟิสิกส์มหาวิทยาลัย">
+        <h3>ฟิสิกส์ มหาวิทยาลัย</h3>
+        <p>พื้นฐาน + แบบฝึกหัด</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
